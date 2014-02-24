@@ -8,11 +8,10 @@ class QuestionsController < ApplicationController
 		@question = Question.first
 		Rails.logger.debug "DEBUG: params are #{params}"
 		if params[:answer] == @question.answer.to_s 
-			Rails.logger.debug "Correct"
+			@answer=  "Correct"
 		else 
-			Rails.logger.debug "Mehhm!!!"
+			@answer = "Incorrect"
 		end	
-		redirect_to root_path
 	end
 
 

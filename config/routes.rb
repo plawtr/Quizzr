@@ -1,6 +1,7 @@
 Quizzr::Application.routes.draw do
 
   resources :questions
+  post 'questions/process_question', to: 'questions#process_question'
   root to: 'questions#index'
  # 
 

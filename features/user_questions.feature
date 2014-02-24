@@ -1,7 +1,11 @@
 
 
-Feature: Show a random question to the user
+Feature: Show the first question to the user
+
+Background:
+Given one question exists
 
 Scenario:
 	Given I am on the homepage
-	Then I should see "Is London the capital of the UK?"
+	Then I should see "Is pi greater than three?"
+

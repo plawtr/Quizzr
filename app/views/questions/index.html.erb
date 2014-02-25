@@ -1,12 +1,15 @@
+<% if session[:username]%>
+
+	<%= @question.body %>
+	
+	<form action="/questions/process_question" method="post">
+		<input type="radio" name="answer" value='true' id='yes'>
+		<label for='yes'>Yes</label>
+		<input type="radio" name="answer" value='false' id='no'>
+		<label for='no'>No</label>
+		<input type="submit" value="Submit">
+		<input name="authenticity_token" type="hidden" value="<%= session[:_csrf_token] %>" />
+	</form>
+<% end %>
 
 
-<%= @question.body %>
-
-<form action="/questions/process_question" method="post">
-	<input type="radio" name="answer" value='true' id='yes'>
-	<label for='yes'>Yes</label>
-	<input type="radio" name="answer" value='false' id='no'>
-	<label for='no'>No</label>
-	<input type="submit" value="Submit">
-	<input name="authenticity_token" type="hidden" value="<%= session[:_csrf_token] %>" />
-</form>

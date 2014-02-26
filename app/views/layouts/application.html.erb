@@ -12,10 +12,14 @@
 
 <% if session[:username]%>
   <%= "Welcome, #{session[:username]}." %>
+  <%= form_tag("/logoff", method: "post") do %> 
+    <%= submit_tag("Log off") %>
+  <% end %>
+
 <% else %>
 	<%= form_tag("/login", method: "post") do %>	  
-  	<%= text_field_tag(:username) %>
-  	<%= password_field_tag(:password) %>
+  	<%= text_field_tag :username, nil, :placeholder => "Username"  %>
+  	<%= password_field_tag :password, nil, :placeholder => "Password" %>
   	<%= submit_tag("Log in") %>
 	<% end %>
 
@@ -26,6 +30,22 @@
 
 </header>
 
+<div id="flash-container">
+  <% if flash[:notice] %>
+    <div class="flash notice">
+      <%= flash[:notice] %>
+    </div>
+  <% flash[:notice]=nil %>
+  <% end %>
+
+  <% if flash[:errors] && !flash[:errors].empty? %>
+    <ul id="errors">
+      <% flash[:errors].each do |error| %>
+        <li class="flash error"><%= error %></li>
+      <% end %> 
+    </ul>
+  <% end %>
+</div>
 
 <%= yield %>
 

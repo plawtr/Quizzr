@@ -4,6 +4,7 @@ Quizzr::Application.routes.draw do
   resources :questions
   resources :users
   post 'login' => 'sessions#new'
+  post 'logoff' => 'sessions#logoff'
   post 'signup' => 'users#new'
   post 'questions/process_question', to: 'questions#process_question'
   root to: 'questions#index'

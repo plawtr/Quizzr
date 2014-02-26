@@ -1,0 +1,7 @@
+<%= form_for (@question) do |form| %>
+		<%= form.text_field :body, :placeholder => "Add your question" %>
+		<%= form.text_field :answer, :placeholder => "Add your answer" %>
+
+		<%= form.submit("Add Question") %>
+<% end %>
+

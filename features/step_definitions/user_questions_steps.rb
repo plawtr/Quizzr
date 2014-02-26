@@ -13,11 +13,16 @@ Given(/^I am logged in$/) do
 end
 
 Then(/^I should see my first question$/) do
-  expect(page).to have_content @question.body 
+  expect(page).to have_content @question.body
 end
 
 Then(/^I should not see my first question$/) do
-  expect(page).not_to have_content @question.body 
+  expect(page).not_to have_content @question.body
+end
+
+When(/^my question should exist$/) do
+  expect(Question.find_by body: "Is Madrid the capital of Spain?").not_to eq(nil)
+
 end
 
 

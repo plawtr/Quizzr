@@ -19,8 +19,7 @@ development:
   encoding: unicode
   database: quizzr_development
   pool: 5
-  username: Vasenka
-  password:
+  host: localhost
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -47,17 +46,14 @@ test: &test
   adapter: postgresql
   encoding: unicode
   database: quizzr_test
+  host: localhost
   pool: 5
-  username: Vasenka
-  password:
 
 production:
   adapter: postgresql
   encoding: unicode
   database: quizzr_production
   pool: 5
-  username: quizzr
-  password:
 
 cucumber:
   <<: *test

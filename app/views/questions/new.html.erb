@@ -7,7 +7,7 @@
 		<%= form.radio_button :answer, "false"%>
 		<%= form.label :answer_no, "No" %>
 
-
+		<%= form.hidden_field :user_id, :value => session[:user_id] %>
 		<%= form.submit("Add Question") %>
 <% end %>
 

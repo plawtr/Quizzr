@@ -1,6 +1,12 @@
 <%= form_for (@question) do |form| %>
-		<%= form.text_field :body, :placeholder => "Add your question" %>
-		<%= form.text_field :answer, :placeholder => "Add your answer" %>
+		<%= form.text_area :body, :placeholder => "Add your question" %>
+
+		<%= form.radio_button :answer, "true"%>
+		<%= form.label :answer_yes, "Yes" %>
+
+		<%= form.radio_button :answer, "false"%>
+		<%= form.label :answer_no, "No" %>
+
 
 		<%= form.submit("Add Question") %>
 <% end %>

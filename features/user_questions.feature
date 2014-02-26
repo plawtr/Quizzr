@@ -1,7 +1,8 @@
 Feature: Show the first question to the user
 
 Background:
-Given one question exists
+	Given one question exists
+	Given one user exists
 
 Scenario: Logged in
 	Given I am on the homepage	

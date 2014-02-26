@@ -6,12 +6,7 @@ class QuestionsController < ApplicationController
 
 	def process_question
 		@question = Question.first
-		Rails.logger.debug "DEBUG: params are #{params}"
-		if params[:answer] == @question.answer.to_s 
-			@answer=  "Correct"
-		else 
-			@answer = "Incorrect"
-		end	
+		@answer= params[:answer] == @question.answer.to_s ?  "Correct" : "Incorrect"
 	end
 
 

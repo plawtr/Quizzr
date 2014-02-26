@@ -1,6 +1,10 @@
 Quizzr::Application.routes.draw do
 
+  # get "users/new"
   resources :questions
+  resources :users
+  post 'login' => 'sessions#new'
+  post 'signup' => 'users#new'
   post 'questions/process_question', to: 'questions#process_question'
   root to: 'questions#index'
  # 

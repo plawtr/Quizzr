@@ -4,21 +4,15 @@ Feature: Show the first question to the user
 Background:
 Given one question exists
 
-Scenario:
+Scenario: Logged in
 	Given I am on the homepage
-	Then I should see "Is pi greater than three?"
+	And I am logged in
+	Then I should see my first question
 
-Scenario: the answer is correct
+Scenario: Not logged in
 	Given I am on the homepage
-	When I choose "Yes"
-	And I press "Submit"
-	Then I should see "Correct"
+	Then I should not see my first question
 
-Scenario: the answer is wrong
-	Given I am on the homepage
-	When I choose "No"
-	And I press "Submit"
-	Then I should see "Incorrect"
 
 
 

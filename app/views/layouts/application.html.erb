@@ -12,6 +12,10 @@
 
 <% if session[:username]%>
   <%= "Welcome, #{session[:username]}." %>
+  <%= form_tag("/logoff", method: "post") do %> 
+    <%= submit_tag("Log off") %>
+  <% end %>
+
 <% else %>
 	<%= form_tag("/login", method: "post") do %>	  
   	<%= text_field_tag(:username) %>

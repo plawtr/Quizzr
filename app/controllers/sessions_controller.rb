@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 		user = User.authenticate(username, password)
 
   	if user 
-  		session[:username] = user.username	
+  		session[:user_id] = user.id	
   	else
   		flash[:errors] = ["The email or password is incorrect"]
   	end
@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 	end
 
 	def logoff
-		session[:username] = nil
+		session[:user_id] = nil
 		redirect_to root_path
 	end
 end

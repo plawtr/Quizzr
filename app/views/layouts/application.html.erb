@@ -10,8 +10,8 @@
 <body>
 <header>
 
-<% if session[:username]%>
-  <%= "Welcome, #{session[:username]}." %>
+<% if current_user %>
+  <%= "Welcome, #{@user.username}." %>
   <%= form_tag("/logoff", method: "post") do %> 
     <%= submit_tag("Log off") %>
   <% end %>

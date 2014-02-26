@@ -1,4 +1,4 @@
-<% if session[:username]%>
+<% if current_user%>
 
 	<%= @question.body %>
 
@@ -10,9 +10,12 @@
 		<input type="submit" value="Submit">
 		<input name="authenticity_token" type="hidden" value="<%= session[:_csrf_token] %>" />
 	</form>
+
+	<a href="/questions/new">Add Question</a>
+	
 <% end %>
 
-<a href="/questions/new">Add Question</a>
+
 
 
 

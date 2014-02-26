@@ -1,5 +1,4 @@
 
-
 Feature: Show the first question to the user
 
 Background:

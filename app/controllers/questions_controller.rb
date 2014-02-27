@@ -1,8 +1,10 @@
 class QuestionsController < ApplicationController
 
 	def index
-		@question = Question.first
-		@user_answer = UserAnswer.new
+		if current_user
+			@question = pick_random_question
+			@user_answer = UserAnswer.new
+		end
 	end
 
 	def new
@@ -10,9 +12,9 @@ class QuestionsController < ApplicationController
 	end
 
 	def create
-		# FIXME: Strings have to be booleans ... :P
-		params[:answer] = false if params[:answer] == "false"
-		
+
+		# params[:answer] = false if params[:answer] == "false"
+
 		@question = Question.new(question_params)		
   	if @question.save 
   		session[:temp_question_body] = nil
@@ -25,6 +27,12 @@ class QuestionsController < ApplicationController
 
 	def question_params
 		params.require(:question).permit(:body, :answer, :user_id)
+	end
+
+	def pick_random_question
+		answered_question_ids = UserAnswer.where(user_id: @user.id).map{|q| q.question_id}
+		question_set = Question.where.not(user_id: @user.id).where("id NOT IN (?)", answered_question_ids)
+		question_set.sample
 	end
 
 end

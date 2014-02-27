@@ -8,4 +8,13 @@ class ApplicationController < ActionController::Base
   	error_messages.each {|k, v| output << "#{k.to_s.capitalize} #{v.join(", ")}."}
   	output
   end
+
+  def current_user
+  	begin
+  		@user = User.find(session[:user_id])
+  	rescue
+  		nil
+  	end
+  end
+  
 end

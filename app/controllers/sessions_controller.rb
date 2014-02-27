@@ -14,6 +14,8 @@ class SessionsController < ApplicationController
 
 	def logoff
 		session[:user_id] = nil
+		session[:temp_question_body] = nil
+		flash[:notice] =  "Goodbye!"
 		redirect_to root_path
 	end
 end

@@ -1,19 +1,22 @@
 Feature: User answers a question
 
 Background:
-	Given one question exists
 	Given one user exists
-	Given I am on the homepage	
+	Given one question exists
+	Given I am on the homepage
 	Given I am logged in
 
 Scenario: the answer is correct
 	Given I am on the homepage
-	When I choose "Yes"
+	When I choose "user_answer_answer_true"
 	And I press "Submit"
 	Then I should see "Correct"
+	And my answer should be registered
 
 Scenario: the answer is wrong
-	When I choose "No"
+	Given I am on the homepage
+	When I choose "user_answer_answer_false"
 	And I press "Submit"
 	Then I should see "Incorrect"
+	And my answer should be registered
 

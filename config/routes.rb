@@ -3,12 +3,13 @@ Quizzr::Application.routes.draw do
   # get "users/new"
   resources :questions
   resources :users
+  resources :user_answers
   post 'login' => 'sessions#new'
   post 'logoff' => 'sessions#logoff'
   post 'signup' => 'users#new'
   post 'questions/process_question', to: 'questions#process_question'
   root to: 'questions#index'
- # 
+ #
 
 
   # The priority is based upon order of creation: first created -> highest priority.

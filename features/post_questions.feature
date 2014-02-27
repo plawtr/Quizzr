@@ -1,8 +1,8 @@
 Feature: User can post a question
 
 Background:
-	Given one question exists
 	Given one user exists
+	Given one question exists
 	Given I am on the homepage
 
 Scenario: Log in user can post a question

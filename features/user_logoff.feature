@@ -1,8 +1,8 @@
 Feature: User logoff
 
 Background:
-	Given one question exists
 	Given one user exists
+	Given one question exists
 	Given I am on the homepage
 	When I am logged in
 

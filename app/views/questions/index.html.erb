@@ -1,18 +1,24 @@
 <% if current_user%>
+	<a href="/questions/new">Add Question</a>
 
 	<%= @question.body %>
 
-	<form action="/questions/process_question" method="post">
-		<input type="radio" name="answer" value='true' id='yes'>
-		<label for='yes'>Yes</label>
-		<input type="radio" name="answer" value='false' id='no'>
-		<label for='no'>No</label>
-		<input type="submit" value="Submit">
-		<input name="authenticity_token" type="hidden" value="<%= session[:_csrf_token] %>" />
-	</form>
+	<%= form_for (@user_answer) do |form| %>
 
-	<a href="/questions/new">Add Question</a>
-	
+		<%= form.radio_button :answer, "true"%>
+		<%= form.label :answer_yes, "Yes" %>
+
+		<%= form.radio_button :answer, "false"%>
+		<%= form.label :answer_no, "No" %>
+
+		<%= form.hidden_field :user_id, :value => session[:user_id] %>
+		<%= form.hidden_field :question_id, :value => @question.id %>
+		<%= form.submit("Submit") %>
+	<% end %>
+
+
+	<%= @answer %>
+
 <% end %>
 
 

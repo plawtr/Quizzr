@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	validates :username, uniqueness: true
 	has_many :questions
+  has_many :user_answers
 
 	def self.authenticate(username, password)
     user = find_by_username(username)

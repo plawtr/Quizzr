@@ -2,8 +2,8 @@
 Feature: Show the first question to the user
 
 Background:
-	Given one question exists
 	Given one user exists
+	Given one question exists
 
 Scenario: Logged in
 	Given I am on the homepage
@@ -13,6 +13,12 @@ Scenario: Logged in
 Scenario: Not logged in
 	Given I am on the homepage
 	Then I should not see my first question
+
+Scenario: Logged in (random question)
+
+	Given I am on the homepage
+	And I am logged in
+
 
 
 

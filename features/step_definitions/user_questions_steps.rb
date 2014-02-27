@@ -3,7 +3,7 @@ Given(/^I am on the homepage$/) do
 end
 
 Given(/^one question exists$/) do
-  @question = Question.create(body: "Is pi greater than three?", answer: 'true')
+  @question = Question.create(body: "Is pi greater than three?", answer: 'true', user_id: @user.id )
 end
 
 Given(/^I am logged in$/) do
@@ -19,6 +19,7 @@ end
 Then(/^I should not see my first question$/) do
   expect(page).not_to have_content @question.body
 end
+
 
 When(/^my question should exist$/) do
   expect(Question.find_by body: "Is Madrid the capital of Spain?").not_to eq(nil)

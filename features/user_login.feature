@@ -1,8 +1,8 @@
 Feature: User login
 
 Background:
-	Given one question exists
 	Given one user exists
+	Given one question exists
 	Given I am on the homepage
 
 Scenario:

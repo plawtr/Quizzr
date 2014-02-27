@@ -1,9 +1,10 @@
 Feature: User sign up
 
 Background:
+	Given one user exists
 	Given one question exists
 	Given I am on the homepage
-	When I press "Sign up"	
+	When I press "Sign up"
 
 Scenario:
 	When I see the sign up form

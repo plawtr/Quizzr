@@ -5,10 +5,10 @@
 
 	<%= form_for (@user_answer) do |form| %>
 
-		<%= form.radio_button :answer, "true"%>
+		<%= form.radio_button :answer, true %>
 		<%= form.label :answer_yes, "Yes" %>
 
-		<%= form.radio_button :answer, "false"%>
+		<%= form.radio_button :answer, false %>
 		<%= form.label :answer_no, "No" %>
 
 		<%= form.hidden_field :user_id, :value => session[:user_id] %>

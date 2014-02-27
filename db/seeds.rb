@@ -6,9 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-questions =  Question.create([{ body: 'Is pi greater than three?', answer: 'true' },
-            	                { body: 'Is the pope catholic?',  answer: 'true' },
-            	                { body: 'Is Belfast the captital of Ireland?',  answer: 'false' },
-            	                { body: "Is Aston Martin James Bond's first car?" ,  answer: 'false' },
-            	                { body: 'Was Clint Eastwood star of The Magnificent Seven?',  answer: 'false' },
-            	                { body: 'Has Bradley Wiggins won the Tour de France?',  answer: 'true' }	])
+questions =  Question.create([{ body: 'Is pi greater than three?', answer: true },
+            	                { body: 'Is the pope catholic?',  answer: true },
+            	                { body: 'Is Belfast the captital of Ireland?',  answer: false },
+            	                { body: "Is Aston Martin James Bond's first car?" ,  answer: false },
+            	                { body: 'Was Clint Eastwood star of The Magnificent Seven?',  answer: false },
+            	                { body: 'Has Bradley Wiggins won the Tour de France?',  answer: true }	])

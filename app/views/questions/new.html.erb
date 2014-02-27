@@ -1,5 +1,4 @@
 <%= form_for (@question) do |form| %>
-		<%= puts "XXXXX"+session[:temp_question_body].inspect unless session[:temp_question_body].nil? %>
 		<%= form.text_area :body, :placeholder => "Add your question", :value => session[:temp_question_body]  %>
 
 		<%= form.radio_button :answer, "true"%>

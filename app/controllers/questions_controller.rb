@@ -10,6 +10,9 @@ class QuestionsController < ApplicationController
 	end
 
 	def create
+		# FIXME: Strings have to be booleans ... :P
+		params[:answer] = false if params[:answer] == "false"
+		
 		@question = Question.new(question_params)		
   	if @question.save 
   		session[:temp_question_body] = nil

@@ -4,9 +4,17 @@ class UsersController < ApplicationController
   end
 
   def create
-  	@user = User.create(user_params)
-  	session[:user_id] = @user.id
-  	redirect_to root_path
+  	@user = User.new(user_params)
+  	if @user.save 
+	  	session[:user_id] = @user.id
+	  	puts "XXXXXXX SHould not be here"
+	  	redirect_to root_path
+	  else
+	  	flash[:errors] = []
+	  	@user.errors.messages.each {|k, v| flash[:errors] << "#{k.to_s.capitalize} #{v.join(", ")}."}
+	  	puts flash[:errors]
+	  	redirect_to new_user_path
+	  end
   end
 
  private 
